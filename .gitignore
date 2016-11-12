@@ -20,3 +20,14 @@ solution
 runner
 checker
 *.zip
+
+# Java
+*.class
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# logs
+*.log
