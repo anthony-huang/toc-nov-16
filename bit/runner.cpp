@@ -40,9 +40,12 @@ private:
     if(a.length() < b.length()) return 1;
     if(b.length() < a.length()) return 0;
 
-    for(int i = 0 ; i < a.length() ; i++)
+    for(int i = 0 ; i < a.length() ; i++) {
       if(a[i] > b[i])
         return 0;
+      if(a[i] < b[i])
+        return 1;
+    }
 
     return 1;  
   }
