@@ -1,0 +1,22 @@
+# swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+# session
+Session.vim
+# temporary
+.netrwhist
+*~
+# auto-generated tag files
+tags
+
+# testcases
+*.in
+*.out
+
+# runner's related
+scorer
+prog
+solution
+runner
+checker
+*.zip
