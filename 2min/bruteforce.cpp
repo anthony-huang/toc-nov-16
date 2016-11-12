@@ -14,10 +14,9 @@ int main() {
 	cin >> q;
 	for (int i = 0; i < q; ++i) {
 		cin >> l >> r;
-		--l, --r;
 		stack<int> st;
 		int ans = 0;
-		for (int j = l; j <= r; ++j) {
+		for (int j = l - 1; j < r; ++j) {
 			while (!st.empty()) {
 				int u = st.top();
 				++ans;
