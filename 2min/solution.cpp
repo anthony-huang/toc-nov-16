@@ -5,7 +5,7 @@ using namespace std;
 class FenwickTree {
 public:
 	FenwickTree(int n) {
-		tree = vector<int>(n, 0);
+		tree = vector<int>(n + 1, 0);
 	}
 	
 	int query(int x) {
@@ -57,6 +57,7 @@ private:
 
 int main() {
 	ios::sync_with_stdio(false);
+	cin.tie(0);
 	int n, x;
 	cin >> n;
 	vector<Range> intervals;
