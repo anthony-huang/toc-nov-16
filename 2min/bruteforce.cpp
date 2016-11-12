@@ -12,19 +12,20 @@ int main() {
 		cin >> a[i];
 	}
 	cin >> q;
-	for (int i = 0; i < n; ++i) {
+	for (int i = 0; i < q; ++i) {
 		cin >> l >> r;
+		--l, --r;
 		stack<int> st;
 		int ans = 0;
-		for (int i = l - 1; i < r; ++i) {
+		for (int j = l; j <= r; ++j) {
 			while (!st.empty()) {
-				int u = st.empty();
+				int u = st.top();
 				++ans;
-				if (u > a[i]) {
+				if (u > a[j]) {
 					st.pop();
 				} else break;
 			}
-			st.push(a[i]);
+			st.push(a[j]);
 		}
 		cout << ans << '\n';
 	}
