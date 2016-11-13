@@ -72,7 +72,7 @@ protected:
 
   void SampleTestCases() {
     SAMPLE_CASE({"101","10100","2"},{1});
-    SAMPLE_CASE({"1010","10011","3"},{1});
+    SAMPLE_CASE({"1010","10001","3"},{1});
     SAMPLE_CASE({"111000111","1110001111","4"},{1});
   }
 
@@ -163,9 +163,12 @@ private:
     if(a.length() < b.length()) return 1;
     if(b.length() < a.length()) return 0;
 
-    for(int i = 0 ; i < a.length() ; i++)
+    for(int i = 0 ; i < a.length() ; i++) {
       if(a[i] > b[i])
         return 0;
+      if(a[i] < b[i])
+        return 1;
+    }
 
     return 1;  
   }
