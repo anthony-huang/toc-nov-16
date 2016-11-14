@@ -1,0 +1,36 @@
+# swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+# session
+Session.vim
+# temporary
+.netrwhist
+*~
+# auto-generated tag files
+tags
+
+# testcases
+*.in
+*.out
+
+# runner's related
+scorer
+prog
+solution
+runner
+checker
+*.zip
+
+# Java
+*.class
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Pascal
+*.o
+
+# logs
+*.log
