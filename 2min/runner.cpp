@@ -14,8 +14,8 @@ protected:
 
     void Config() {
         setSlug("toki-oc-nov-16-2min");
-        setTimeLimit(1);
-        setMemoryLimit(32);
+        setTimeLimit(2);
+        setMemoryLimit(64);
     }
 
     void InputFormat() {
@@ -101,15 +101,33 @@ protected:
         }
     }
 
+	void genSQRT(int N, bool LR = false) {
+		L = R = vector<int>(N);
+		for (int i = N; i >= 1; --i) {
+			if (LR) {
+				L[N - i] = 1;
+				R[N - i] = i;
+			} else {
+				L[N - i] = i;
+				R[N - i] = N;
+			}
+		}
+	}
+
     void TestGroup1() {
         assignToSubtasks({1});
         CASE(N = MAXN, Q = MAXN, gen(), genIntervals(N, Q));
         CASE(N = MAXN, Q = MAXN, gen(true), genIntervals(N, Q));
         CASE(N = MAXN, Q = MAXN, gen(true, true), genIntervals(N, Q));
         CASE(N = MAXN, Q = MAXN, gen(false, true), genIntervals(N, Q));
+		// full interval queries
         CASE(N = MAXN, Q = MAXN, gen(true), L = vector<int>(Q, 1), R = vector<int>(Q, N));
         CASE(N = MAXN - 1, Q = MAXN, gen(), genIntervals(N, Q));
         CASE(N = MAXN, Q = MAXN, gen(true), genIntervals(N, Q));
+		for (int i = 0; i < 2; ++i) {
+			CASE(N = MAXN, Q = MAXN, gen(true), genSQRT(N));
+			CASE(N = MAXN, Q = MAXN, gen(true), genSQRT(N, true));
+		}
         CASE(N = 1, Q = 10, gen(), L = vector<int>(Q, 1), R = vector<int>(Q, 1));
     }
 };
