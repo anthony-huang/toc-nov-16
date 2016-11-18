@@ -25,10 +25,10 @@ protected:
 	}
 	
 	bool inRange(vector<int>& V, int L, int R){
-    	for(int i : V)
+    		for(int i : V)
 			if(i < L || R < i)
 				return false;
-    	return true;
+    		return true;
 	}
 };
 
