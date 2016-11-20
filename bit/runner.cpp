@@ -32,7 +32,7 @@ class Problem : public BaseProblem {
     CONS(isBinary(A));
     CONS(isBinary(B));
 
-    CONS(1 <= K && K <= MAXLOG);
+    CONS(0 <= K && K <= MAXLOG);
   }
 
 private:
@@ -79,6 +79,15 @@ protected:
   void TestGroup1() {
     assignToSubtasks({1});
     
+    CASE(A = lowerBound(), B = upperBound(), K = 0);
+    CASE(A = twoPower(1900), B = randomBinaryString(1950,MAXLOG), K = 0);
+    for(int i = 0 ; i < 3 ; i++) {
+      CASE(A = randomBinaryString(1,MAXLOG), 
+           B = randomBinaryString(1,MAXLOG), 
+           fix(), 
+           K = 0);
+    }
+
     CASE(A = "1000000000000", B = randomBinaryString(50,MAXLOG), K = 1);
     CASE(A = lowerBound(), B = upperBound(), K = MAXLOG);
     CASE(A = randomBinaryString(1,MAXLOG), B = randomBinaryString(1,MAXLOG), fix(), K = rnd.nextInt(1,MAXLOG));
@@ -128,6 +137,13 @@ private:
 
   string lowerBound() {
     return "1";
+  }
+
+  string twoPower(int x) {
+    string ret = "1";
+    for(int i = 0 ; i < x ; i++)
+      ret += "0";
+    return ret;
   }
 
   string randomBinaryString(int low,int hi) {

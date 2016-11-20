@@ -43,8 +43,9 @@ int calc(string s) {
 
 	int ret = 0;
 	for(int start = 1 ; start < s.length() ; start++)
-		for(int en = start+1 ; en < s.length() ; en++)
+		for(int en = start+1 ; en < s.length() ; en++) {
 			ret = (ret + getComb(en-start-1,k-1)) % MOD;
+		}
 
 	int zero = 0;
 	for(int i = 1 ; i < s.length() ; i++)
@@ -74,7 +75,9 @@ int main() {
 	cin >> a >> b >> k;
 
 	decrement(a);
-	int ans = (calc(b) - calc(a) + MOD) % MOD;
+	int ans = b.length() - a.length();
+	if(k > 0)
+		ans = (calc(b) - calc(a) + MOD) % MOD;
 
 	cout << ans << "\n";
 	return 0;

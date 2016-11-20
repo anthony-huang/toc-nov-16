@@ -26,17 +26,6 @@ def decrement(s):
 	else:
 		s = s[:cur] + "0" + s[cur+1:]
 
-#	ch = list(s)
-#	while ch[cur] == '0':
-#		ch[cur] = '1'
-#		cur = cur-1
-#	ch[cur] = '0'
-#
-#	if(cur == 0):
-#		s = ''.join(ch[1:])
-#	else:
-#		s = ''.join(ch)
-
 	return s
 
 def calc(s,k):
@@ -70,6 +59,7 @@ b = input()
 k = int(input())
 
 a = decrement(a)
-ret = (calc(b,k) - calc(a,k) + MOD) % MOD
-
+ret = len(b) - len(a)
+if k > 0:
+	ret = (calc(b,k) - calc(a,k) + MOD) % MOD
 print(ret)			

@@ -6,6 +6,7 @@ var
 	C : array[0..N,0..N] of longint;
 	A, B : ansistring;
 	K : longint;
+	ans : longint;
 
 procedure precompute();
 var
@@ -86,5 +87,8 @@ begin
 	readln(K);
 
 	A := decrement(A);
-	writeln((calc(B) - calc(A) + modd) mod modd);
+	ans := length(B) - length(A);
+	if (k > 0) then
+		ans := (calc(B) - calc(A) + modd) mod modd;
+	writeln(ans);
 end.	

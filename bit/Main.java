@@ -84,7 +84,10 @@ public class Main {
 		int k = in.nextInt();
 
 		a = decrement(a);
-		int ret = (calc(b,k) - calc(a,k) + MOD) % MOD;
+		int ret = b.length() - a.length();
+		if(k > 0) {
+			ret = (calc(b,k) - calc(a,k) + MOD) % MOD;
+		}
 		System.out.println(ret);
 	}
 }
