@@ -79,6 +79,10 @@ protected:
   void TestGroup1() {
     assignToSubtasks({1});
     
+    CASE(A = upperBound(), B = upperBound(), K = 0);
+    CASE(A = upperBound(), B = upperBound(), K = MAXLOG);
+    CASE(A = upperBound(), B = upperBound(), K = rnd.nextInt(1,MAXLOG));
+
     CASE(A = lowerBound(), B = upperBound(), K = 0);
     CASE(A = twoPower(1900), B = randomBinaryString(1950,MAXLOG), K = 0);
     for(int i = 0 ; i < 3 ; i++) {
@@ -90,17 +94,17 @@ protected:
 
     CASE(A = "1000000000000", B = randomBinaryString(50,MAXLOG), K = 1);
     CASE(A = lowerBound(), B = upperBound(), K = MAXLOG);
-    CASE(A = randomBinaryString(1,MAXLOG), B = randomBinaryString(1,MAXLOG), fix(), K = rnd.nextInt(1,MAXLOG));
+    CASE(A = randomBinaryString(1,MAXLOG), B = randomBinaryString(1,MAXLOG), fix(), K = rnd.nextInt(0,MAXLOG));
     CASE(A = randomBinaryString(2,1000), B = randomBinaryString(2,1000), fix(), K = B.length()-1);
     CASE(A = randomBinaryString(1900,2000), B = randomBinaryString(1900,2000), fix(), K = 1);
     CASE(A = lowerBound(), B = upperBound(), K = MAXLOG-1);
 
     for(int i = 0 ; i < 4 ; i++)
-      CASE(A = lowerBound(), B = upperBound(), K = rnd.nextInt(1,MAXLOG));
+      CASE(A = lowerBound(), B = upperBound(), K = rnd.nextInt(0,MAXLOG));
 
     for(int i = 0 ; i < 10 ; i++) {
-      CASE(A = randomBinaryString(1,MAXLOG), B = randomBinaryString(1,MAXLOG), fix(), K = rnd.nextInt(1,B.length()));
-      CASE(A = randomBinaryString(1500,MAXLOG), B = randomBinaryString(1500,MAXLOG), fix(), K = rnd.nextInt(1,B.length()));
+      CASE(A = randomBinaryString(1,MAXLOG), B = randomBinaryString(1,MAXLOG), fix(), K = rnd.nextInt(0,B.length()));
+      CASE(A = randomBinaryString(1500,MAXLOG), B = randomBinaryString(1500,MAXLOG), fix(), K = rnd.nextInt(0,B.length()));
     }
 
     for(int i = 0 ; i < 5 ; i++) {
