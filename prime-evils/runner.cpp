@@ -56,6 +56,22 @@ protected:
     
     primes = generatePrimes(1e6);
 
+    // jawabannya 0
+    CASE(N = 100000,
+         K = rnd.nextLongLong(1,1e6-1),
+         A = randomArray(N,K+1,1e6));
+
+    // K MAX
+    CASE(N = 100000,
+         K = 1e11,
+         A = randomArray(N,1,1e6));
+    CASE(N = rnd.nextInt(1,100000),
+         K = 1e11,
+         A = noPrime(N,1,1e6));
+    CASE(N = rnd.nextInt(1,100000),
+         K = 1e11,
+         A = allPrime(N,1,1e6));
+
     // anti 1=prima
     CASE(N = 5,
          K = 3,
